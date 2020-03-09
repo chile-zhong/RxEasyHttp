@@ -28,6 +28,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -65,17 +66,44 @@ public interface ApiService {
     @POST()
     Observable<ResponseBody> postBody(@Url String url, @Body Object object);
 
+    @POST()
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    Observable<ResponseBody> postJson(@Url String url, @Body RequestBody jsonBody);
+
+    @POST()
+    Observable<ResponseBody> postBody(@Url String url, @Body RequestBody body);
+
     @GET()
     Observable<ResponseBody> get(@Url String url, @QueryMap Map<String, String> maps);
 
     @DELETE()
     Observable<ResponseBody> delete(@Url String url, @QueryMap Map<String, String> maps);
 
+    //@DELETE()//delete body请求比较特殊 需要自定义
+    @HTTP(method = "DELETE",/*path = "",*/hasBody = true)
+    Observable<ResponseBody> deleteBody(@Url String url, @Body Object object);
+
+    //@DELETE()//delete body请求比较特殊 需要自定义
+    @HTTP(method = "DELETE",/*path = "",*/hasBody = true)
+    Observable<ResponseBody> deleteBody(@Url String url, @Body RequestBody body);
+
+    //@DELETE()//delete body请求比较特殊 需要自定义
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @HTTP(method = "DELETE",/*path = "",*/hasBody = true)
+    Observable<ResponseBody> deleteJson(@Url String url, @Body RequestBody jsonBody);
+
     @PUT()
     Observable<ResponseBody> put(@Url String url, @QueryMap Map<String, String> maps);
 
-    @POST()
+    @PUT()
     Observable<ResponseBody> putBody(@Url String url, @Body Object object);
+
+    @PUT()
+    Observable<ResponseBody> putBody(@Url String url, @Body RequestBody body);
+
+    @PUT()
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    Observable<ResponseBody> putJson(@Url String url, @Body RequestBody jsonBody);
 
     @Multipart
     @POST()
@@ -92,11 +120,4 @@ public interface ApiService {
     @Streaming
     @GET
     Observable<ResponseBody> downloadFile(@Url String fileUrl);
-
-    @POST()
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
-    Observable<ResponseBody> postJson(@Url String url, @Body RequestBody jsonBody);
-
-    @POST()
-    Observable<ResponseBody> postBody(@Url String url, @Body RequestBody body);
 }

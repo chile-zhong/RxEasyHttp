@@ -31,10 +31,14 @@ import com.zhouyou.http.callback.ProgressDialogCallBack;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.demo.customapi.test1.ResultBean;
 import com.zhouyou.http.demo.customapi.test1.TestApiResult1;
+import com.zhouyou.http.demo.customapi.test10.ArticleBean;
+import com.zhouyou.http.demo.customapi.test10.TestResultApi10;
 import com.zhouyou.http.demo.customapi.test2.Result;
 import com.zhouyou.http.demo.customapi.test2.TestApiResult2;
 import com.zhouyou.http.demo.customapi.test3.TestApiResult3;
 import com.zhouyou.http.demo.customapi.test4.GwclBean;
+import com.zhouyou.http.demo.customapi.test9.FriendsListBean;
+import com.zhouyou.http.demo.customapi.test9.MyResult;
 import com.zhouyou.http.demo.customapi.testN.HttpManager;
 import com.zhouyou.http.exception.ApiException;
 import com.zhouyou.http.subsciber.IProgressDialog;
@@ -195,6 +199,43 @@ public class CustomApiActivity extends AppCompatActivity {
                     }
                 }) {
                 });*/
+    }
+
+    /**
+     * 自定义请求返回集合
+     */
+    public void onTestFive(View view){
+        EasyHttp.get("https://api.91kaiteng.com/v1/user/Frineds")
+                .params("token", "5b305fbeaa331")
+                .params("keyword", "")
+                .execute(new CallBackProxy<MyResult<List<FriendsListBean>>, List<FriendsListBean>>(new SimpleCallBack<List<FriendsListBean>>() {
+                    @Override
+                    public void onError(ApiException e) {
+                        showToast(e.getMessage());
+                    }
+
+                    @Override
+                    public void onSuccess(List<FriendsListBean> result) {
+                        if (result != null) showToast(result.toString());
+                    }
+                }) {
+                });
+    }
+    
+    public void onTestSix(View view){
+        EasyHttp.get("http://www.wanandroid.com/article/list/0/json")
+                .execute(new CallBackProxy<TestResultApi10<ArticleBean>, ArticleBean>(new SimpleCallBack<ArticleBean>() {
+                    @Override
+                    public void onError(ApiException e) {
+                        showToast(e.getMessage());
+                    }
+
+                    @Override
+                    public void onSuccess(ArticleBean result) {
+                        if (result != null) showToast(result.toString());
+                    }
+                }) {
+                });
     }
 
     /**

@@ -39,8 +39,13 @@
 ## 联系方式
 本群旨在为使用我github项目的人提供方便，如果遇到问题欢迎在群里提问。
 
-#### 欢迎加入QQ交流群 [![](https://img.shields.io/badge/%E7%82%B9%E6%88%91%E4%B8%80%E9%94%AE%E5%8A%A0%E5%85%A5QQ%E7%BE%A4-581235049-blue.svg)](http://shang.qq.com/wpa/qunwpa?idkey=1e1f4bcfd8775a55e6cf6411f6ff0e7058ff469ef87c4d1e67890c27f0c5a390)
-![](http://img.blog.csdn.net/20170601165330238)
+#### 欢迎加入QQ交流群（Q1群已满，请加入Q2群）
+
+[![](https://img.shields.io/badge/%E7%82%B9%E6%88%91%E4%B8%80%E9%94%AE%E5%8A%A0%E5%85%A5Q1%E7%BE%A4-581235049%28%E5%B7%B2%E6%BB%A1%29-blue.svg)](http://shang.qq.com/wpa/qunwpa?idkey=1e1f4bcfd8775a55e6cf6411f6ff0e7058ff469ef87c4d1e67890c27f0c5a390)
+
+[![](https://img.shields.io/badge/%E7%82%B9%E6%88%91%E4%B8%80%E9%94%AE%E5%8A%A0%E5%85%A5Q2%E7%BE%A4-832887601-blue.svg)](http://shang.qq.com/wpa/qunwpa?idkey=f3c997d1c3cc6a8c9fa46d3fde0d663f50e4e6d0e6441b8cc276bef39befd24c)
+
+![](http://img.blog.csdn.net/20170601165330238)![](https://img-blog.csdnimg.cn/20190627164802234.jpg)
 ## 演示（请star支持）
 ![](https://github.com/zhou-you/RxEasyHttp/raw/master/screenshot/1.gif) ![](https://github.com/zhou-you/RxEasyHttp/raw/master/screenshot/2.gif)
 ![](https://github.com/zhou-you/RxEasyHttp/raw/master/screenshot/3.gif) ![](https://github.com/zhou-you/RxEasyHttp/raw/master/screenshot/4.gif)
@@ -48,25 +53,29 @@
 ### RxEasyHttp与Rxjava结合使用场景演示
 ![](https://github.com/zhou-you/RxEasyHttp/raw/master/screenshot/5.gif)
 
-[RxEasyHttp网络库与Rxjava2结合常见使用场景介绍](http://blog.csdn.net/zhouy478319399/article/details/78550248)
+**[RxEasyHttp网络库与Rxjava2结合常见使用场景介绍    点我！！！>>](http://blog.csdn.net/zhouy478319399/article/details/78550248)**
 
 [![](https://badge.juejin.im/entry/5a0d4d0d6fb9a045080934f1/likes.svg?style=plastic)](https://juejin.im/post/5a0d4cd851882531ba108090)
 
 ## 版本说明
 
 ### 当前版本
-[![release](https://img.shields.io/badge/release-V2.0.4-orange.svg)](https://github.com/zhou-you/RxEasyHttp/blob/master/update.md)
+[![release](https://img.shields.io/badge/release-V2.1.2-orange.svg)](https://github.com/zhou-you/RxEasyHttp/blob/master/update.md)
+
+**[历史版本，点我、点我、点我>>](https://github.com/zhou-you/RxEasyHttp/blob/master/update.md)**
 
 ## 用法介绍
 目前只支持主流开发工具AndtoidStudio的使用，没有提供Eclipse使用方式.
 本项目Demo的网络请求的服务器地址为了安全，把url去掉了，但是Demo程序中的示例都是ok的
-### Demo下载
-[![downloads](https://img.shields.io/badge/downloads-2.2M-blue.svg)](https://github.com/zhou-you/RxEasyHttp/blob/master/apk/rxeasyhttp-demo.apk?raw=true)
+### 点击按钮下载Demo
+[![downloads](https://img.shields.io/badge/downloads-2.2M-blue.svg)](https://github.com/zhou-you/RxEasyHttp/blob/master/apk/rxeasyhttp-demo.apk?raw=true) 
+#### 扫码下载Demo
+![](https://github.com/zhou-you/RxEasyHttp/blob/master/screenshot/down.png?raw=true)
 
 ### build.gradle设置
 ```
 dependencies {
- compile 'com.zhouyou:rxeasyhttp:2.0.4'
+ compile 'com.zhouyou:rxeasyhttp:2.1.5'
 }
 ```
 想查看所有版本，请点击下面地址。
@@ -409,12 +418,12 @@ ProgressDialogCallBack带有进度框的请求，可以设置对话框消失是�
                     @Override
                     public void onError(ApiException e) {
                         super.onError(e);//super.onError(e)必须写不能删掉或者忘记了
-                        //请求成功
+                        //请求失败
                     }
 
                     @Override
                     public void onSuccess(SkinTestResult response) {
-                       //请求失败
+                       //请求成功
                     }
                 });
 ```
